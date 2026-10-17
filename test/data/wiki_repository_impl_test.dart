@@ -34,10 +34,13 @@ void main() {
         return _json({
           'query': {
             'allcategories': [
-              {'*': 'Category:小', 'pages': 2},
-              {'*': 'Category:空', 'pages': 0},
-              {'*': 'Category:大', 'pages': 100},
-              {'*': 'Category:中', 'pages': 10},
+              {'*': '小', 'pages': 2},
+              {'*': '空', 'pages': 0},
+              {'*': '大', 'pages': 100},
+              {'*': '中', 'pages': 10},
+              {'*': '隐藏', 'pages': 999, 'hidden': ''},
+              {'*': 'Weapon templates', 'pages': 500},
+              {'*': 'Articles to be expanded', 'pages': 400},
             ],
           },
         });
@@ -46,6 +49,7 @@ void main() {
       expect(seen!['action'], 'query');
       expect(seen!['list'], 'allcategories');
       expect(seen!['aclimit'], '500');
+      expect(seen!['acprop'], 'size|hidden');
       expect(cats.map((c) => c.title).toList(),
           ['Category:大', 'Category:中']);
       expect(cats.map((c) => c.pages).toList(), [100, 10]);
@@ -57,6 +61,7 @@ void main() {
       final repo = _repo((query) async {
         expect(query['cmtitle'], 'Category:Weapons');
         expect(query['cmtype'], 'page');
+        expect(query['cmnamespace'], '0');
         expect(query['cmlimit'], '10');
         return _json({
           'query': {
@@ -115,6 +120,7 @@ void main() {
       final results = await repo.search('解放者', limit: 5);
       expect(seen!['list'], 'search');
       expect(seen!['srsearch'], '解放者');
+      expect(seen!['srnamespace'], '0');
       expect(seen!['srlimit'], '5');
       expect(results.single.pageId, 7);
       expect(results.single.snippet, contains('searchmatch'));

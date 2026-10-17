@@ -260,6 +260,9 @@ class _ArticlePageState extends State<ArticlePage> {
                   borderRadius: BorderRadius.circular(6),
                   child: CachedNetworkImage(
                       imageUrl: src,
+                      httpHeaders: const <String, String>{
+                        'User-Agent': kWikiUserAgent,
+                      },
                       fit: BoxFit.contain,
                       placeholder: (_, __) => const SizedBox(
                         height: 120,

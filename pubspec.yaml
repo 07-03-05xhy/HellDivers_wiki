@@ -1,7 +1,7 @@
 name: helldivers_wiki
 description: 绝地潜兵2中文Wiki阅读器 - Helldivers 2 Chinese Wiki Reader
 publish_to: 'none'
-version: 1.0.1+2
+version: 1.1.0+3
 
 environment:
   sdk: '>=3.4.0 <4.0.0'
@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^1.2.0
+  html: 0.15.6
   flutter_html: ^3.0.0
   cached_network_image: ^3.4.1
   sqflite: ^2.3.0

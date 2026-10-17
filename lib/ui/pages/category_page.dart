@@ -156,6 +156,9 @@ class _CategoryPageState extends State<CategoryPage> {
                 if (thumb != null)
                   CachedNetworkImage(
                     imageUrl: thumb,
+                    httpHeaders: const <String, String>{
+                      'User-Agent': kWikiUserAgent,
+                    },
                     width: 64,
                     height: 64,
                     fit: BoxFit.cover,
