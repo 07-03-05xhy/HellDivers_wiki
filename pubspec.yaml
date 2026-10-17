@@ -1,7 +1,7 @@
 name: helldivers_wiki
 description: 绝地潜兵2中文Wiki阅读器 - Helldivers 2 Chinese Wiki Reader
 publish_to: 'none'
-version: 0.1.0+1
+version: 1.0.1+2
 
 environment:
   sdk: '>=3.4.0 <4.0.0'
